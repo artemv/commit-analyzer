@@ -53,6 +53,6 @@
     "pretest:suite": "npm run build && npm run build:tests",
     "test": "npm run test:suite",
     "test:suite": "nyc tap --no-cov .test/{scenarios,specs}/*.js"
-  },s
+  },
   "version": "0.0.0-semantic-release"
 }
