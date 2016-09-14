@@ -161,5 +161,53 @@ test('derive version number from commits', (t) => {
     })
   })
 
+  t.test('major/breaking version disallowed, fallback not specified', (tt) => {
+    tt.plan(2)
+
+    analyzer({allowed: ['patch', 'minor']}, {
+      commits: [{
+        hash: 'qwer',
+        message: 'feat(something): even cooler feature\nBREAKING CHANGE: everything so changed'
+      }, {
+        hash: 'asdf',
+        message: 'fix: nasty bug'
+      }]
+    }, (err, type) => {
+      tt.error(err)
+      tt.is(type, 'minor')
+    })
+  })
+
+  t.test('patch version disallowed, fallback specified', (tt) => {
+    tt.plan(2)
+
+    analyzer({allowed: ['minor', 'major'], fallback: 'minor'}, {
+      commits: [{
+        hash: 'qwer',
+        message: 'chore(something): some stuff'
+      }, {
+        hash: 'asdf',
+        message: 'fix: nasty bug'
+      }]
+    }, (err, type) => {
+      tt.error(err)
+      tt.is(type, 'minor')
+    })
+  })
+
+  t.test('feat version disallowed, fallback not specified', (tt) => {
+    tt.plan(2)
+
+    analyzer({allowed: ['patch', 'major']}, {
+      commits: [{
+        hash: 'qwer',
+        message: 'feat(something): even cooler feature'
+      }]
+    }, (err, type) => {
+      tt.error(err)
+      tt.is(type, 'patch')
+    })
+  })
+
   t.end()
 })

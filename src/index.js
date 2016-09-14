@@ -1,37 +1,49 @@
 const { parseRawCommit } = require('conventional-changelog/lib/git')
-const typeMap = {
-  chore: 'patch',
-  docs: 'patch',
-  feat: 'minor',
-  fix: 'patch',
-  perf: 'patch',
-  refactor: 'patch',
-  test: 'patch'
+
+const PATCH_VERSION = 'patch'
+const MINOR_VERSION = 'minor'
+const MAJOR_VERSION = 'major'
+const TYPES_MAP = {
+  chore: PATCH_VERSION,
+  docs: PATCH_VERSION,
+  feat: MINOR_VERSION,
+  fix: PATCH_VERSION,
+  perf: PATCH_VERSION,
+  refactor: PATCH_VERSION,
+  test: PATCH_VERSION
 }
+
+const DEFAULT_VERSION_TYPE = PATCH_VERSION
+const DEFAULT_ALLOWED_VERSIONS = [PATCH_VERSION, MINOR_VERSION, MAJOR_VERSION]
 
 module.exports = function (pluginConfig, {commits}, cb) {
   let type = null
+  let allowedVersionTypes = pluginConfig.allowed || DEFAULT_ALLOWED_VERSIONS;
 
   commits
 
-  .map((commit) => parseRawCommit(`${commit.hash}\n${commit.message}`))
+  .map(commit => parseRawCommit(`${commit.hash}\n${commit.message}`))
 
-  .every((commit) => {
+  .every(commit => {
     let commitType = null
     if (!commit) {
-      commitType = 'patch'
-    } else if (commit.breaks.length) {
-      commitType = 'major'
-    } else if (commit.type in typeMap) {
-      commitType = typeMap[commit.type]
+      commitType = DEFAULT_VERSION_TYPE
+    } else if (commit.breaks.length && allowedVersionTypes.indexOf(MAJOR_VERSION) >= 0) {
+      commitType = MAJOR_VERSION
+    } else if (commit.type in TYPES_MAP) {
+      commitType = TYPES_MAP[commit.type]
     }
 
-    if (commitType === 'patch') {
+    if (commitType && allowedVersionTypes.indexOf(commitType) < 0) {
+      commitType = pluginConfig.fallback || DEFAULT_VERSION_TYPE
+    }
+
+    if (commitType === PATCH_VERSION) {
       type = type || commitType
     } else {
       type = commitType
     }
-    return type !== 'major'
+    return type !== MAJOR_VERSION
   })
 
   cb(null, type)

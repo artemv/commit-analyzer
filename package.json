@@ -1,6 +1,6 @@
 {
   "name": "freeform-semantic-commit-analyzer",
-  "description": "derive next semantic version from commits, covering all commit messages types",
+  "description": "derive next semantic version from commits, covering most commit messages types",
   "author": "Artem Vasiliev <artem.job@gmail.com>",
   "contributors": [
     "Stephan Bönnemann <stephan@boennemann.me> (http://boennemann.me)",
