@@ -23,5 +23,10 @@ SEE: https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#type
 - perf
 - refactor
 - test
-
+- unstructured commits
 SEE: https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#type
+
+## This fork
+Changes list compared to https://github.com/semantic-release/commit-analyzer:
+* unstructured commits yield in patch versions
+* most other commit types yield in patch versions
