@@ -22,21 +22,21 @@ module.exports = function (pluginConfig, _ref, cb) {
   commits.map(function (commit) {
     return parseRawCommit(commit.hash + '\n' + commit.message);
   }).every(function (commit) {
+    var commitType = null;
     if (!commit) {
-      type = 'patch';
-      return true;
+      commitType = 'patch';
+    } else if (commit.breaks.length) {
+      commitType = 'major';
+    } else if (commit.type in typeMap) {
+      commitType = typeMap[commit.type];
     }
 
-    if (commit.breaks.length) {
-      type = 'major';
-      return false;
+    if (commitType === 'patch') {
+      type = type || commitType;
+    } else {
+      type = commitType;
     }
-
-    if (commit.type in typeMap) {
-      type = typeMap[commit.type];
-    }
-
-    return true;
+    return type !== 'major';
   });
 
   cb(null, type);

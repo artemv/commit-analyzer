@@ -107,6 +107,26 @@ test('derive version number from commits', (t) => {
     })
   })
 
+  t.test('minor/feature version, if the last commit was fix', (tt) => {
+    tt.plan(2)
+
+    analyzer({}, {
+      commits: [{
+        hash: 'asdf',
+        message: 'fix: nasty bug'
+      }, {
+        hash: '1234',
+        message: 'feat(scope): cool feature'
+      }, {
+        hash: 'asdf',
+        message: 'fix: another nasty bug'
+      }]
+    }, (err, type) => {
+      tt.error(err)
+      tt.is(type, 'minor')
+    })
+  })
+
   t.test('major/breaking version', (tt) => {
     tt.plan(2)
 
