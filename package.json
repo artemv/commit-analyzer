@@ -57,5 +57,8 @@
     "test": "npm run test:suite",
     "test:suite": "nyc tap --no-cov .test/{scenarios,specs}/*.js"
   },
+  "release": {
+    "analyzeCommits": "./dist/index.js"
+  },
   "version": "0.0.0-semantic-release"
 }
