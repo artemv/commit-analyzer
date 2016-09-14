@@ -26,6 +26,7 @@
     "mkdirp": "^0.5.1",
     "nyc": "^3.0.0",
     "rimraf": "^2.4.0",
+    "semantic-release": "^4.3.5",
     "standard": "^4.2.1",
     "tap": "^1.2.0"
   },
@@ -55,7 +56,8 @@
     "coverage:upload": "npm run coverage -- --reporter=lcovonly && coveralls < coverage/lcov.info",
     "pretest:suite": "npm run build && npm run build:tests",
     "test": "npm run test:suite",
-    "test:suite": "nyc tap --no-cov .test/{scenarios,specs}/*.js"
+    "test:suite": "nyc tap --no-cov .test/{scenarios,specs}/*.js",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "release": {
     "analyzeCommits": "./dist/index.js"
