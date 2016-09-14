@@ -1,9 +1,11 @@
-# artemv freeform-semantic-commit-analyzer
-[![npm version](https://badge.fury.io/js/%40artemv%2Ffreeform-semantic-commit-analyzer.svg)](http://badge.fury.io/js/%40artemv%2Ffreeform-semantic-commit-analyzer)
+# freeform-semantic-commit-analyzer
+[![npm version](https://badge.fury.io/js/freeform-semantic-commit-analyzer.svg)](http://badge.fury.io/js/freeform-semantic-commit-analyzer)
 [![Build Status](https://travis-ci.org/artemv/freeform-semantic-commit-analyzer.svg?branch=master)](https://travis-ci.org/artemv/freeform-semantic-commit-analyzer)
 [![Coverage Status](https://coveralls.io/repos/artemv/freeform-semantic-commit-analyzer/badge.svg)](https://coveralls.io/r/artemv/freeform-semantic-commit-analyzer)
 [![Dependency Status](https://david-dm.org/artemv/freeform-semantic-commit-analyzer.svg)](https://david-dm.org/artemv/freeform-semantic-commit-analyzer)
 [![devDependency Status](https://david-dm.org/artemv/freeform-semantic-commit-analyzer/dev-status.svg)](https://david-dm.org/artemv/freeform-semantic-commit-analyzer#info=devDependencies)
+
+An analyzeCommits plugin for semantic-release covering all commit types.
 
 ## Major Releases
 
