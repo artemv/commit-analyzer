@@ -2,7 +2,10 @@
   "name": "freeform-semantic-commit-analyzer",
   "description": "derive next semantic version from commits, allowing for freeform commit messages too",
   "author": "Artem Vasiliev <artem.job@gmail.com>",
-  "contributors": ["Stephan Bönnemann <stephan@boennemann.me> (http://boennemann.me)"],
+  "contributors": [
+    "Stephan Bönnemann <stephan@boennemann.me> (http://boennemann.me)",
+    "Wil Moore III <wil.moore@wilmoore.com>"
+  ],
   "bugs": {
     "url": "https://github.com/artemv/freeform-semantic-commit-analyzer/issues"
   },
