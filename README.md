@@ -10,6 +10,8 @@ An analyzeCommits plugin for [semantic-release](https://github.com/semantic-rele
 
 ## Major Releases
 
+SEE: https://github.com/semantic-release/semantic-release#major-breaking-release
+
 - Breaking Changes
 
 ## Minor Releases
@@ -27,7 +29,6 @@ SEE: https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#type
 - refactor
 - test
 - unstructured commits
-SEE: https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#type
 
 ## This fork
 Changes list compared to https://github.com/semantic-release/commit-analyzer:
