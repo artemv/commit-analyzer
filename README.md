@@ -5,7 +5,7 @@
 [![Dependency Status](https://david-dm.org/artemv/freeform-semantic-commit-analyzer.svg)](https://david-dm.org/artemv/freeform-semantic-commit-analyzer)
 [![devDependency Status](https://david-dm.org/artemv/freeform-semantic-commit-analyzer/dev-status.svg)](https://david-dm.org/artemv/freeform-semantic-commit-analyzer#info=devDependencies)
 
-An analyzeCommits plugin for semantic-release covering all commit types.
+An analyzeCommits plugin for [semantic-release](https://github.com/semantic-release/semantic-release) covering all commit types.
 
 ## Major Releases
 
