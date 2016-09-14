@@ -6,6 +6,6 @@ node_modules
 .nyc_output
 .test
 .tmp
-
+.idea
 # build-artifacts
 # dist
