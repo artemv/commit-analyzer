@@ -27,7 +27,7 @@ SEE: https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#type
 - fix
 - perf
 - refactor
-- test
+- revert
 - unstructured commits
 
 ## This fork
