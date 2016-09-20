@@ -10,7 +10,7 @@ const TYPES_MAP = {
   fix: PATCH_VERSION,
   perf: PATCH_VERSION,
   refactor: PATCH_VERSION,
-  test: PATCH_VERSION
+  revert: PATCH_VERSION
 }
 
 const DEFAULT_VERSION_TYPE = PATCH_VERSION
@@ -25,7 +25,6 @@ module.exports = function (pluginConfig, {commits}, cb) {
   .map(commit => parseRawCommit(`${commit.hash}\n${commit.message}`))
 
   .every(commit => {
-    console.log('commit:', commit)
     let commitType = null
     if (!commit) {
       commitType = DEFAULT_VERSION_TYPE
@@ -45,7 +44,6 @@ module.exports = function (pluginConfig, {commits}, cb) {
       if (commitType) type = commitType
     }
     let result = type !== MAJOR_VERSION
-    console.log('result', result, type)
     return result
   })
 

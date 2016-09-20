@@ -161,6 +161,20 @@ test('derive version number from commits', (t) => {
     })
   })
 
+  t.test('revert -> patch release', (tt) => {
+    tt.plan(2)
+
+    analyzer({}, {
+      commits: [{
+        hash: 'asdf',
+        message: 'revert: some other commit'
+      }]
+    }, (err, type) => {
+      tt.error(err)
+      tt.is(type, 'patch')
+    })
+  })
+
   t.test('major/breaking version disallowed, fallback not specified', (tt) => {
     tt.plan(2)
 
