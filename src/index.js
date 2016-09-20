@@ -18,13 +18,14 @@ const DEFAULT_ALLOWED_VERSIONS = [PATCH_VERSION, MINOR_VERSION, MAJOR_VERSION]
 
 module.exports = function (pluginConfig, {commits}, cb) {
   let type = null
-  let allowedVersionTypes = pluginConfig.allowed || DEFAULT_ALLOWED_VERSIONS;
+  let allowedVersionTypes = pluginConfig.allowed || DEFAULT_ALLOWED_VERSIONS
 
   commits
 
   .map(commit => parseRawCommit(`${commit.hash}\n${commit.message}`))
 
   .every(commit => {
+    console.log('commit:', commit)
     let commitType = null
     if (!commit) {
       commitType = DEFAULT_VERSION_TYPE
@@ -41,9 +42,11 @@ module.exports = function (pluginConfig, {commits}, cb) {
     if (commitType === PATCH_VERSION) {
       type = type || commitType
     } else {
-      type = commitType
+      if (commitType) type = commitType
     }
-    return type !== MAJOR_VERSION
+    let result = type !== MAJOR_VERSION
+    console.log('result', result, type)
+    return result
   })
 
   cb(null, type)

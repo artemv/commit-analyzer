@@ -209,5 +209,22 @@ test('derive version number from commits', (t) => {
     })
   })
 
+  t.test('feat + style -> minor', (tt) => {
+    tt.plan(2)
+
+    analyzer({}, {
+      commits: [{
+        hash: 'qwer',
+        message: 'feat(something): even cooler feature'
+      }, {
+        hash: 'asdf',
+        message: 'style: switch to JS standard style'
+      }]
+    }, (err, type) => {
+      tt.error(err)
+      tt.is(type, 'minor')
+    })
+  })
+
   t.end()
 })
