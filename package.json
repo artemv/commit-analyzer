@@ -27,7 +27,6 @@
     "nyc": "^3.0.0",
     "rimraf": "^2.4.0",
     "semantic-release": "^4.3.5",
-    "standard": "^4.2.1",
     "tap": "^1.2.0"
   },
   "homepage": "https://github.com/artemv/freeform-semantic-commit-analyzer#readme",
