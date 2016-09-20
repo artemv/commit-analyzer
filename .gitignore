@@ -8,4 +8,4 @@ node_modules
 .tmp
 .idea
 # build-artifacts
-# dist
+dist
