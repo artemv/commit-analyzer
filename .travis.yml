@@ -11,7 +11,7 @@ node_js:
 - '0.12'
 - '0.10'
 before_install:
-- npm i -g npm@^2.0.0
+- npm i -g npm@^3.8.3
 before_script:
 - npm prune
 - curl -Lo travis_after_all.py https://raw.github.com/dmakhno/travis_after_all/master/travis_after_all.py
