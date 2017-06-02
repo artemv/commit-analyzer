@@ -147,6 +147,36 @@ test('derive version number from commits', (t) => {
     })
   })
 
+  t.test('major/breaking version with chore', (tt) => {
+    tt.plan(2)
+
+    analyzer({}, {
+      commits: [{
+        hash: 'qwer',
+        message: 'chore(something): just want to bump major\nBREAKING CHANGE: everything so broken'
+      }]
+    }, (err, type) => {
+      tt.error(err)
+      tt.is(type, 'major')
+    })
+  })
+
+  if (false) {
+    t.test('freeform major/breaking', (tt) => {
+      tt.plan(2)
+
+      analyzer({}, {
+        commits: [{
+          hash: 'qwer',
+          message: 'BREAKING CHANGE: just want to bump major'
+        }]
+      }, (err, type) => {
+        tt.error(err)
+        tt.is(type, 'major')
+      })
+    })
+  }
+  
   t.test('unstructured -> patch release', (tt) => {
     tt.plan(2)
 
