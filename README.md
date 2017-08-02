@@ -8,10 +8,13 @@
 
 An analyzeCommits plugin for `semantic-release` covering most commit types.
 
-##Install
+## Install
 First, install [semantic-release](https://github.com/semantic-release/semantic-release) for your project if not yet.
 
-`npm install --save-dev freeform-semantic-commit-analyzer`
+Then install freeform-semantic-commit-analyzer:
+```
+yarn add --dev freeform-semantic-commit-analyzer
+```
 
 Then tweak the `semantic-release` config section in `package.json`:
 ```
